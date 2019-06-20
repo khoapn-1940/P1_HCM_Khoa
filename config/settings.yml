@@ -1,0 +1,8 @@
+name_maximum_length : 50
+email_maximum_length : 50
+phone_minimum_length : 8
+phone_maximum_length : 14
+bank_account_minimum_length : 8
+bank_account_maximum_length : 14
+password_minimum_length : 6
+remember_me : "1"

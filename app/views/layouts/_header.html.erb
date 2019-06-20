@@ -1,0 +1,24 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "", root_path, id: "logo" %>
+    <nav> 
+      <ul class="nav navbar-nav navbar-right">
+        <li> <%= link_to t("header.home"), root_path %> </li>
+        <% if logged_in? %>
+        <li> <%= link_to t("header.edit"), edit_user_path(current_user) %> </li>
+        <% if User.roles[session[:role]] == User.roles[:admin] %>
+            <li> <%= link_to t("header.manage_users"), root_path %> </li>
+            <li> <%= link_to t("header.manage_tours"), root_path %> </li>
+            <li> <%= link_to t("header.manage_booking_requests"), root_path %> </li>
+            <li> <%= link_to t("header.manage_user_reviews"), root_path %> </li>
+            <li> <%= link_to t("header.manage_revenue"), root_path %> </li>
+            <li> <%= link_to t("header.manage_category"), root_path %> </li>
+        <% end %>
+        <% else %>
+          <li> <%= link_to t("header.register"), signup_path %> </li>
+          <li> <%= link_to t("header.login"), login_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
