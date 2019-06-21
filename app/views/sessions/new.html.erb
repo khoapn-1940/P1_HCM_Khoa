@@ -1,0 +1,19 @@
+<% provide(:title, t("authentication.views.title.login")) %>
+<h1> <%= t("authentication.views.html.login") %></h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: login_path) do |f| %>
+      <%= f.label t("authentication.views.label.email") %>
+      <%= f.email_field :email, class: "form-control" %>
+      <%= f.label t("authentication.views.label.password") %>
+      <%= f.password_field :password, class: "form-control" %>
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span> <%= t("authentication.views.label.remember_me") %> </span>
+      <% end %>
+      <%= f.submit t("authentication.views.html.login"), class: "btn btn-primary" %>
+    <% end %>
+    <p> <%= t("authentication.views.label.no_account") %> <%= link_to t("authentication.views.label.signup"), signup_path %></p>
+  </div>
+</div>

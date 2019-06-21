@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 1.5
+  tour_total: 1
+  time_start: 2019-06-18 13:36:20
+  time_end: 2019-06-18 13:36:20
+
+two:
+  price: 1.5
+  tour_total: 1
+  time_start: 2019-06-18 13:36:20
+  time_end: 2019-06-18 13:36:20
