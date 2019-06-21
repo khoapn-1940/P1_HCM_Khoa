@@ -25,7 +25,7 @@ class User < ApplicationRecord
    format: {with: VALID_BANK_ACCOUNT_REGEX}
   has_secure_password
   validates :password, presence: true,
-   length: {minimum: Settings.password_minimum_length}
+   length: {minimum: Settings.password_minimum_length}, on: :create
 
   attr_accessor :remember_token
 

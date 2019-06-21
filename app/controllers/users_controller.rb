@@ -7,13 +7,13 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    if @user.update_attributes(user_params)
-      flash[:success] =
-        t("authentication.controllers.users_controller.flash.update_fail")
-      redirect_to @user
-    else
+    if @user.update_attributes(update_params)
       flash[:success] =
         t("authentication.controllers.users_controller.flash.update_success")
+      redirect_to root_path
+    else
+      flash[:success] =
+        t("authentication.controllers.users_controller.flash.update_fail")
       render :edit
     end
   end
@@ -38,11 +38,19 @@ class UsersController < ApplicationController
       :password, :password_confirmation
   end
 
+  def update_params
+    params.require(:user).permit :name, :email, :phone, :bank_account, :role
+  end
+
   def load_user
-    @user = current_user
-    return if @user
-    flash[:warning] =
-      t("authentication.controllers.users_controller.flash.no_user")
-    redirect_to root_path
+    if params.key? :id
+      @user = User.find_by_id params[:id]
+    else
+      @user = current_user
+      return if @user
+      flash[:warning] =
+        t("authentication.controllers.users_controller.flash.no_user")
+      redirect_to root_path
+    end
   end
 end

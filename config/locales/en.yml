@@ -72,6 +72,7 @@ en:
   header:
     home : "Home"
     edit : "Edit"
+    user : "User"
     manage_users : "Manage Users"
     manage_tours : "Manage Tours"
     manage_booking_requests : "Manage Booking Requests"
@@ -80,3 +81,5 @@ en:
     manage_category : "Manage Category"
     register : "Register"
     login : "Login"
+  manage_users:
+    role : "Role"

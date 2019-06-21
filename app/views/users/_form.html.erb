@@ -8,9 +8,16 @@
   <%= f.text_field :phone %>
   <%= f.label t("authentication.views.label.bank_account") %>
   <%= f.text_field :bank_account %>
-  <%= f.label t("authentication.views.label.password") %>
-  <%= f.password_field :password %>
-  <%= f.label t("authentication.views.label.password_confirm") %>
-  <%= f.password_field :password_confirmation %>
+  <% if @user.email.nil? %>
+    <%= f.label t("authentication.views.label.password") %>
+    <%= f.password_field :password %>
+    <%= f.label t("authentication.views.label.password_confirm") %>
+    <%= f.password_field :password_confirmation %>
+  <% else %>
+  <% end %>
+  <% if User.roles[session[:role]] == User.roles[:admin] %>
+    <%= f.label "Role" %>
+    <%= f.text_field :role %> 
+  <% end %>
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

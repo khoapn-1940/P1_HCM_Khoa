@@ -1,0 +1,5 @@
+<% @user_all.each do |user| %>
+<p>
+    <%= t("header.user") %>: <%= user.name %> -------------------------- <%= t "manage_users.role" %> : <%= user.role %> ------------------- <%= link_to t("header.edit"), edit_user_path(:id => user.id) %>
+</p>
+<% end %>
