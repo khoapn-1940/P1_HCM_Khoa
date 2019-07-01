@@ -1,8 +1,15 @@
 name_maximum_length : 50
 email_maximum_length : 50
+description_maximum_length : 250
 phone_minimum_length : 8
 phone_maximum_length : 14
 bank_account_minimum_length : 8
 bank_account_maximum_length : 14
 password_minimum_length : 6
 remember_me : "1"
+positive : 0
+maximum_book_total : 1000
+maximum_tour_total : 1000
+minimum_tour_total : 1
+minimum_price : 100
+index_per_page : 12

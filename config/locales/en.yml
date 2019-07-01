@@ -30,6 +30,36 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  views:
+    title:
+      home : "Home"
+      manage_user : "Manage User"
+      manage_tour : "Manage Tour"
+      manage_booking_request : "Manage Booking Request"
+      manage_user_review : "Manage User Review"
+      manage_revenue : "Manage Revenue"
+      manage_category : "Manage Category"
+      view_tour : "View Tour"
+      view_my_booking : "View My Booking"
+      view_my_review : "View My Review"
+      register : "Register"
+      login : "Login"
+    tag:
+      name : "Name"
+      email : "Email"
+      phone : "Phone"
+      bank_account : "Bank Account"
+      password : "Password"
+      password_confirmation : "Password Confirmation"
+      role : "Role"
+      sign_with_facebook : "Sign in with Facebook"
+      sign_with_google : "Sign in with Google+"
+      sign_up_new_account : "Sign up New Account"
+      or : "or"
+      booking : "Booking"
+  validate:
+    validate_time : "has already passed"
+    validate_time_end : "Time end must after time strat"
   authentication:
     views:
       label:
@@ -72,11 +102,34 @@ en:
   header:
     home : "Home"
     edit : "Edit"
+    user : "User"
+    delete : "Delete"
+    category : "Category"
+    category_name : "Category Name"
+    tour : "Tour"
+    id : "ID"
+    price : "Price"
+    tourtotal : "Tour Total"
+    time_start : "Time Start"
+    time_end : "Time End"
+    description : "Description"
     manage_users : "Manage Users"
     manage_tours : "Manage Tours"
     manage_booking_requests : "Manage Booking Requests"
     manage_user_reviews : "Manage User Reviews"
     manage_revenue : "Manage Revenue"
     manage_category : "Manage Category"
+    booking_id : "Booking ID"
+    book_total : "Booking Total"
+    user_id : "User ID"
+    tour_detail_id : "Tour Details ID"
+    view_tour : "View Tour"
+    my_booking : "View My Booking"
     register : "Register"
     login : "Login"
+  manage_users:
+    role : "Role"
+  manage_booking:
+    booking_request_controller:
+      flash:
+        tour_full : "Tour is full, %{count} slot available"

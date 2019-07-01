@@ -3,8 +3,7 @@ class CreateCategories < ActiveRecord::Migration[5.2]
     create_table :categories do |t|
       t.string :name
       t.string :description
-      t.string :user_id
-      t.boolean :enable
+      t.boolean :enable, default: true
       t.timestamps
     end
   end

@@ -1,0 +1,69 @@
+<% if is_admin? %>
+  <li>
+    <%= link_to root_path do %>
+      <i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> <%= t "views.title.home" %></span>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to manage_users_path do %>
+      <i class="fa fa-user"></i><span class="hidden-xs hidden-sm"> <%= t "views.title.manage_user" %> </span>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to view_tour_path do %>
+      <i class="fa fa-bus"></i><span class="hidden-xs hidden-sm"> <%= t "views.title.manage_tour" %> </span>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to view_all_booking_request_path do %>
+      <i class="fa fa-bookmark"></i><span class="hidden-xs hidden-sm"> <%= t "views.title.manage_booking_request" %> </span>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to view_all_review_path do %>
+      <i class="fa fa-pencil"></i><span class="hidden-xs hidden-sm"> <%= t "views.title.manage_user_review" %> </span>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to revenue_path do %>
+      <i class="fa fa-money"></i><span class="hidden-xs hidden-sm"> <%= t "views.title.manage_revenue" %> </span>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to view_category_path do %>
+      <i class="fa fa-list"></i><span class="hidden-xs hidden-sm"> <%= t "views.title.manage_category" %> </span>
+    <% end %>
+  </li>
+<% elsif is_user? %>
+  <li>
+    <%= link_to view_my_information_path do %>
+      <i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> <%= t "views.title.home" %></span>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to root_path do %>
+      <i class="fa fa-car"></i><span class="hidden-xs hidden-sm"> <%= t "views.title.view_tour" %> </span>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to view_my_booking_path do %>
+      <i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm"> <%= t "views.title.view_my_booking" %> </span>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to view_my_review_path do %>
+      <i class="fa fa-car"></i><span class="hidden-xs hidden-sm"> <%= t "views.title.view_my_review" %> </span>
+    <% end %>
+  </li>
+<% else %>
+  <li>
+    <%= link_to signup_path do %>
+      <i class="fa fa-registered"></i><span class="hidden-xs hidden-sm"> <%= t "views.title.register" %> </span>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to login_path do %>
+      <i class="fa fa-sign-in"></i><span class="hidden-xs hidden-sm"> <%= t "views.title.login" %> </span>
+    <% end %>
+  </li>
+<% end %>
