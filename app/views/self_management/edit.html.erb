@@ -1,0 +1,13 @@
+<!------ Include the above in your HEAD tag ---------->
+<div id="logreg-forms">
+  <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> <%= t("views.title.edit_information") %> </h1>
+  <%= form_for(@user, url: self_management_path,html: {class: "form-signin"}) do |f| %>
+    <%= render "shared/form_error_messages", object: @user %>
+    <%= f.text_field :name,class: "form-control", placeholder: t("views.tag.name")%>
+    <%= f.text_field :email,class: "form-control", placeholder: t("views.tag.email") %>
+    <%= f.text_field :phone,class: "form-control", placeholder: t("views.tag.phone") %>
+    <%= f.text_field :bank_account,class: "form-control", placeholder: t("views.tag.bank_account") %>
+    <%= f.submit t("views.tag.update"), class: "btn btn-primary" %>
+  <% end %>
+  <br>
+</div>

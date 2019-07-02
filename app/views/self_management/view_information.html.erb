@@ -1,0 +1,51 @@
+<div class="container" >
+  <div class="prog-page">
+    <div class="header-title header-btn">
+      <div class="header-info">
+        <h2><i class="fa fa-info-circle"></i><%= t("views.title.profile_information")%></h2>
+      </div>
+      <div class="header-btn-edit">
+        <% if @user == current_user%>
+          <%= link_to edit_user_path(current_user) do %>
+            <i class="fa fa-edit"></i> <%= t("views.title.edit_profile") %>
+          <% end%>
+        <% end %>
+      </div>
+    </div>
+    <div class="prof-page-info">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="prof-img">
+            <div class="tags-label">
+              <span><i class="fa fa-tags"></i><!--Infor --></span>
+            </div>
+            <%= image_tag "#{@user.avatar}",  alt: t("views.tag.avatar") %>
+            <div class="img-title">
+              <h4> <%= @user.name %> </h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="prof-info">
+            <div class="info"><label><i class="fa fa-user"></i> <%= t("views.tag.email")%> :</label>  <span> <%= @user.email %> </span></div>
+            <div class="info"><label><i class="fa fa-user"></i> <%= t("views.tag.phone")%> :</label>  <span> <%= @user.phone %> </span></div>
+            <div class="info"><label><i class="fa fa-calendar"></i> <%= t("views.tag.bank_account")%> :</label>
+              <span>
+                <% if @user == current_user %>
+                  <%= @user.bank_account %>
+                <% else %>
+                  ************
+                <% end %>
+              </span>
+            </div>
+            <div class="info"><label><i class="fa fa-male"></i> <%= t("views.tag.total_booking") %> :</label>  <span> <%= @user.bookings.count %> </span></div>
+            <div class="info"><label><i class="fa fa-male"></i> <%= t("views.tag.total_rating") %> :</label>  <span> <%= @user.ratings.count %> </span></div>
+            <div class="info"><label><i class="fa fa-map-marker"></i> <%= t("views.tag.total_review") %> :</label>  <span> <%= @user.reviews .count %> </span></div>
+            <div class="info"><label><i class="fa fa-map-marker"></i> <%= t("views.tag.registered_at") %> </label>  <span> <%= @user.created_at %> </span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -2,7 +2,7 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :tour
   has_many :likes, dependent: :destroy
-  
+  scope :order_by_time_desc, ->{order(created_at: :desc)}
   validates :content, presence: true,
   length: {maximum: Settings.description_maximum_length}
   validates :user_id, numericality:
