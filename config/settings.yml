@@ -13,3 +13,6 @@ maximum_tour_total : 1000
 minimum_tour_total : 1
 minimum_price : 100
 index_per_page : 12
+booking_per_page : 10
+review_per_page : 10
+tour_detail_reviews: 5

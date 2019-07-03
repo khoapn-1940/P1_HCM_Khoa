@@ -9,11 +9,11 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(user_params)
       flash[:success] =
-        t("authentication.controllers.users_controller.flash.update_fail")
-      redirect_to @user
-    else
-      flash[:success] =
         t("authentication.controllers.users_controller.flash.update_success")
+      redirect_to view_my_information_path
+    else
+      flash[:danger] =
+        t("authentication.controllers.users_controller.flash.update_fail")
       render :edit
     end
   end

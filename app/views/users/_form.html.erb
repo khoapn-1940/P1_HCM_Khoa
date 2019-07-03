@@ -6,9 +6,9 @@
     <%= f.text_field :email,class: "form-control", placeholder: t("views.tag.email") %>
     <%= f.text_field :phone,class: "form-control", placeholder: t("views.tag.phone") %>
     <%= f.text_field :bank_account,class: "form-control", placeholder: t("views.tag.bank_account") %>
-    <% if logged_in? %>
+    <% if !logged_in? %>
       <%= f.password_field :password,class: "form-control", placeholder: t("views.tag.password") %>
-      <%= f.password_field :password_confirmation,class: "form-control", placeholder: t("views.tag.name") %>
+      <%= f.password_field :password_confirmation,class: "form-control", placeholder: t("views.tag.password_confirmation") %>
     <% end %>
     <% if is_admin? %>
       <%= f.label t("views.tag.role") %>

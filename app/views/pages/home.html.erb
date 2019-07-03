@@ -6,7 +6,7 @@
       <div class="item  col-xs-4 col-lg-4" style="height: 100%">
         <div class="thumbnail">
           <% if logged_in? %>
-            <%= link_to view_detail_path(tour_id: tour_detail.tour.id, tour_detail_id: tour_detail.id) do %>
+            <%= link_to new_tour_detail_path(tour_detail_id: tour_detail.id, tour_id: tour_detail.tour.id) do %>
               <%= image_tag "#{tour_detail.tour.image}",  alt: "like", class: "group list-group-image", style: "height: 400px;" %>
             <% end %>
           <% else %>
@@ -29,7 +29,7 @@
               <%= l tour_detail.time_end, format: :long %>
               <div class="col-xs-12 col-md-12" style="text-align: right,display: inline-block">
                 <% if logged_in? %>
-                  <%= link_to t("views.tag.booking"), view_detail_path(tour_detail_id: tour_detail.id, tour_id: tour_detail.tour.id), class: "btn btn-success" %>
+                  <%= link_to t("views.tag.booking"), new_tour_detail_path(tour_detail_id: tour_detail.id, tour_id: tour_detail.tour.id), class: "btn btn-success" %>
                 <% else %>
                   <%= link_to t("views.tag.booking"), login_path, class: "btn btn-success" %>
                 <% end %>

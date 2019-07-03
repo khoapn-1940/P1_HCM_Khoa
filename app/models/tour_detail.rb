@@ -2,6 +2,7 @@ class TourDetail < ApplicationRecord
   belongs_to :user
   belongs_to :tour
   has_many :bookings, dependent: :destroy
+  scope :order_by_time_desc, ->{order(created_at: :desc)}
   validates :price, numericality:
    {greater_than_or_equal_to: Settings.minimum_price}
   validates :tour_total, numericality:
@@ -17,10 +18,10 @@ class TourDetail < ApplicationRecord
 
   def validate
     if time_start < Time.zone.now
-      errors.add(:time_start, t("validate.validate_time"))
+      errors.add(:time_start, I18n.t("validate.validate_time"))
     end
     if time_end <= time_start
-      errors.add(:time_end, t("validate.validate_time_end"))
+      errors.add(:time_end, I18n.t("validate.validate_time_end"))
     end
     true # never return false or the validation fails
   end
