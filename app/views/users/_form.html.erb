@@ -9,6 +9,8 @@
     <% if !logged_in? %>
       <%= f.password_field :password,class: "form-control", placeholder: t("views.tag.password") %>
       <%= f.password_field :password_confirmation,class: "form-control", placeholder: t("views.tag.password_confirmation") %>
+    <% else %>
+      <%= f.file_field :avatar %>
     <% end %>
     <% if is_admin? %>
       <%= f.label t("views.tag.role") %>

@@ -6,8 +6,11 @@
 
 # Ignore bundler config.
 /app/assets/*
+/app/helpers/*
+/app/controllers/admin/*
+/app/views/admin/*
 /.bundle
-
+public/*
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*

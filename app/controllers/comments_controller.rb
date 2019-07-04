@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
         format.js
       end
     else
-      flash[:danger] = "Comment Failed !"
+      flash[:danger] = t "controller.flash.comment_failed"
       redirect_to root_path
     end
   end
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
   def load_comment
     @my_review = current_user.reviews.find_by_id params[:id]
     return if @my_review
-    flash[:danger] = t "controller.flash.delete_failed"
+    flash[:danger] = t "controller.flash.load_comment_failed"
     redirect_to view_my_review_path
   end
 
@@ -37,7 +37,7 @@ class CommentsController < ApplicationController
         format.js
       end
     else
-      flash[:danger] = t "controller.flash.delete_failed"
+      flash[:danger] = t "controller.flash.delete_review_failed"
       redirect_to view_my_review_path
     end
   end

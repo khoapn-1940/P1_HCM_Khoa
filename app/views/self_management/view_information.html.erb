@@ -31,7 +31,7 @@
             <div class="info"><label><i class="fa fa-user"></i> <%= t("views.tag.phone")%> :</label>  <span> <%= @user.phone %> </span></div>
             <div class="info"><label><i class="fa fa-calendar"></i> <%= t("views.tag.bank_account")%> :</label>
               <span>
-                <% if @user == current_user %>
+                <% if @user == current_user || is_admin? %>
                   <%= @user.bank_account %>
                 <% else %>
                   ************

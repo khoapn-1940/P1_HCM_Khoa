@@ -15,4 +15,5 @@ minimum_price : 100
 index_per_page : 12
 booking_per_page : 10
 review_per_page : 10
+review_per_page_admin : 15
 tour_detail_reviews: 5
