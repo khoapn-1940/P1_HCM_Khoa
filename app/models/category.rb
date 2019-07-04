@@ -1,5 +1,6 @@
 class Category < ApplicationRecord
   has_many :tours, dependent: :destroy
+  scope :order_by_time_desc, ->{order(created_at: :desc)}
   validates :name, presence: true,
   length: {maximum: Settings.name_maximum_length}
   validates :description, presence: true,

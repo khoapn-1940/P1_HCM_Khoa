@@ -56,4 +56,13 @@ Rails.application.routes.draw do
   resources :comments, only: [:new, :destroy]
   resources :users, only: [:new, :edit, :update, :create]
   resources :manage_users, only: [:new, :edit, :update]
+
+  namespace :admin do
+    resources :users, except: []
+    resources :reviews, except: []
+    resources :categories, except: []
+    resources :tours, except: []
+    resources :tour_details, except: []
+    resources :bookings, except: []
+  end
 end

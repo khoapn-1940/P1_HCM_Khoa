@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :reviews, dependent: :destroy
@@ -6,7 +7,7 @@ class User < ApplicationRecord
   has_many :tours, dependent: :destroy
   has_many :tour_details, dependent: :destroy
   has_many :bookings, dependent: :destroy
-
+  scope :order_by_time_desc, ->{order(created_at: :desc)}
   enum role: {guess: 0, user: 1, admin: 2}
   validates :name,  presence: true,
    length: {maximum: Settings.name_maximum_length}

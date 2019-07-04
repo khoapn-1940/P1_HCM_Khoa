@@ -1,6 +1,6 @@
 5.times do |n|
     name  = Faker::Name.name
-    avatar = "avatar/#{n+1}.jpg"
+    avatar = "#{n+1}.jpg"
     email = "admin#{n+1}@gmail.com"
     phone = "0359071558"
     bank_account = "0359071558"
@@ -18,7 +18,7 @@
     
     50.times do |n|
         name  = Faker::Name.name
-        avatar = "avatar/#{n+1}.jpg"
+        avatar = "#{n+1}.jpg"
         email = "nguyenkhoa#{n+1}@gmail.com"
         phone = "0359071558"
         bank_account = "0359071558"
@@ -43,7 +43,7 @@
     20.times do |n|
         name = Faker::Company.name
         description = Faker::Address.full_address
-        image = "tour/#{n+1}.jpg"
+        image = "#{n+1}.jpg"
         user_id = n%5+1
         category_id = n%10+1
         Tour.create!(name: name, description: description, image: image, user_id: user_id, category_id: category_id)

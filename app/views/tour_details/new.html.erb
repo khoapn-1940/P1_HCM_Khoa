@@ -96,6 +96,9 @@
                 <%= image_tag "#{review.user.avatar}",  alt: "Tour Image", class: "img-circle avatar" %>
               <% end %>
             </div>
+            <% if is_admin? %>
+              <%= link_to t("views.tag.delete"),admin_review_path(id: review.id), method: :DELETE, remote: true, class: "btn btn-danger btn-primary icon pull-right",style:"margin-left: 20px;"%>
+            <% end %>
             <div class="pull-left meta">
               <div class="title h5">
                 <%= link_to view_other_user_information_path(user_id: review.user.id) do %>
