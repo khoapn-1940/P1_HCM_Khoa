@@ -3,6 +3,12 @@ class TourDetail < ApplicationRecord
   belongs_to :tour
   has_many :bookings, dependent: :destroy
   scope :order_by_time_desc, ->{order(created_at: :desc)}
+  scope :t_id, (lambda do |id|
+    where(
+      tour_id: id
+    )
+  end)
+
   validates :price, numericality:
    {greater_than_or_equal_to: Settings.minimum_price}
   validates :tour_total, numericality:

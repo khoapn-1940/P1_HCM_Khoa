@@ -3,6 +3,11 @@ class Booking < ApplicationRecord
   belongs_to :tour_detail
   has_many :payments, dependent: :destroy
   scope :order_by_time_desc, ->{order(created_at: :desc)}
+  scope :this_month, (lambda do
+    where(
+      created_at: Time.now.beginning_of_month..Time.now.end_of_month
+    )
+  end)
   validates :book_total, numericality:
     {
       greater_than_or_equal_to: Settings.positive,

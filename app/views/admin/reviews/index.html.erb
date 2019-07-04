@@ -1,0 +1,31 @@
+<%= will_paginate @reviews%>
+<div class="container">
+  <div class="">
+    <table class="table table-striped custab">
+      <thead>
+        <tr>
+          <th> <%= t("views.tag.review_id") %> </th>
+          <th> <%= t("views.tag.tour") %> </th>
+          <th> <%= t("views.tag.description") %> </th>
+          <th> <%= t("views.tag.user") %> </th>
+          <th> <%= t("views.tag.comment") %> </th>
+          <th> <%= t("views.tag.time") %> </th>
+          <th class="text-center"> <%= t("views.tag.action") %> </th>
+        </tr>
+      </thead>
+      <% @reviews.each do |review| %>
+        <tr id="R<%= review.id %>">
+          <td> <%= review.id %> </td>
+          <td> <%= review.tour.name %> </td>
+          <td> <%= review.tour.description %> </td>
+          <td> <%= review.user.name %>$</td>
+          <td> <%= review.content %> </td>
+          <td> <%= review.created_at %> </td>
+          <td class="text-center">
+            <%= link_to t("views.tag.delete"),admin_review_path(id: review.id), method: :DELETE, remote: true, class: "btn btn-danger " %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
