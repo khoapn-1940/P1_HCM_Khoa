@@ -1,0 +1,36 @@
+<%= will_paginate @users%>
+<% @users.each do |user| %>
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <ul class="thumbnails">
+          <li class="span5 clearfix" id="USER<%= user.id %>">
+            <div class="thumbnail clearfix">
+              <%= link_to view_other_user_information_path(user_id: user.id) do %>
+                <%= image_tag "#{user.avatar}",  alt: "Avatar", class: "pull-left span2 clearfix", style: "height:200px;width:320px;padding-right:30px;"%>
+              <% end %>
+              <div class="caption" class="pull-left" style="padding-left:10px;">
+                <%= link_to "Delete",admin_user_path(id: user.id), method: :DELETE, remote: true, class: "btn btn-danger btn-primary icon pull-right",style:"margin-left: 20px;"%>
+                <%= link_to "Admin",admin_user_path(id: user.id,role: "admin"), method: :PATCH, remote: true,class: "btn btn-success icon pull-right",style:"margin-left: 20px;"%>
+                <%= link_to "User",admin_user_path(id: user.id,role: "user"), method: :PATCH, remote: true, class: "btn btn-primary icon pull-right",style:"margin-left: 20px;"%>
+                <%= link_to "Guest",admin_user_path(id: user.id,role: "guess"), method: :PATCH, remote: true, class: "btn btn-info btn-primary icon pull-right",style:"margin-left: 20px;"%>
+                <h4>
+                  <%= link_to view_other_user_information_path(user_id: user.id) do %>
+                    <%= user.name%>
+                  <% end%>
+                </h4>
+                <small><b>Registered At: </b> <%= l user.created_at, format: :long %></small><br>
+                <small><b>Phone Number: </b> <%= user.phone %></small><br>
+                <small><b>Total Booking: </b> <%= user.bookings.count %></small><br>
+                <small><b>Total Rating: </b> <%= user.ratings.count %></small><br>
+                <small><b>Total Like: </b> <%= user.likes.count %></small><br>
+                <small><b>Total Review: </b> <%= user.reviews.count %></small><br>
+                <small id="Role<%= user.id %>"><b>Role: </b> <%= user.role %></small>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end%>

@@ -1,0 +1,33 @@
+<%= will_paginate @booking%>
+<div class="container">
+  <div class="">
+    <table class="table table-striped custab">
+      <thead>
+        <tr>
+          <th> <%= t("header.booking_id") %> </th>
+          <th> <%= t("views.tag.booking_tour") %> </th>
+          <th> <%= t("views.tag.total_booking") %> </th>
+          <th> <%= t("views.tag.price") %> </th>
+          <th> <%= t("views.tag.username") %> </th>
+          <th> <%= t("views.tag.time_start") %> </th>
+          <th> <%= t("views.tag.time_end") %> </th>
+          <th class="text-center">Action</th>
+        </tr>
+      </thead>
+      <% @booking.each do |booking| %>
+        <tr>
+          <td> <%= booking.id %> </td>
+          <td> <%= booking.tour_detail.tour.name %> </td>
+          <td> <%= booking.book_total %> </td>
+          <td> <%= booking.tour_detail.price.round(0) %>$</td>
+          <td> <%= booking.user.name %> </td>
+          <td> <%= booking.tour_detail.time_start %> </td>
+          <td> <%= booking.tour_detail.time_end %> </td>
+          <td class="text-center">
+            <%= link_to "Delete", admin_booking_path(:id => booking.id), method: :DELETE, class: "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

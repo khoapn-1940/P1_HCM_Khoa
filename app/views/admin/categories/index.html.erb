@@ -1,0 +1,31 @@
+<%= will_paginate @categories %>
+<div class="container">
+  <div class="">
+    <table class="table table-striped custab">
+      <thead>
+        <tr>
+          <th> <%= t("views.tag.id") %> </th>
+          <th> <%= t("views.tag.category") %> </th>
+          <th> <%= t("views.tag.description") %> </th>
+          <th class="text-center"> <%= t("views.tag.action") %> </th>
+        </tr>
+      </thead>
+      <% @categories.each do |category| %>
+        <tr>
+          <td> <%= category.id %> </td>
+          <td> <%= category.name %> </td>
+          <td> <%= category.description %> </td>
+          <td class="text-center">
+            <%= link_to new_admin_tour_path(id: category.id), class: "btn btn-info btn-xs" do %>
+              <span class="glyphicon glyphicon-edit"> <%= t("views.tag.create_tour") %> </span>
+            <% end %>
+            <%= link_to admin_category_path(id: category.id), method: :DELETE, class: "btn btn-danger btn-xs" do %>
+              <span class="glyphicon glyphicon-remove"> <%= t("views.tag.delete") %> </span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+<%= link_to t("views.tag.add_new_category"), new_admin_category_path %>

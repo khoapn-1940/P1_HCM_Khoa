@@ -1,0 +1,36 @@
+<%= will_paginate @tour_details %>
+<div class="container">
+  <div class="">
+    <table class="table table-striped custab">
+      <thead>
+        <tr>
+          <th> <%= t("views.tag.tour_detail_id") %> </th>
+          <th> <%= t("views.tag.price") %> </th>
+          <th> <%= t("views.tag.price") %> </th>
+          <th> <%= t("views.tag.tour_total") %> </th>
+          <th> <%= t("views.tag.time_start") %> </th>
+          <th> <%= t("views.tag.time_end") %> </th>
+          <th class="text-center"> <%= t("views.tag.action") %> </th>
+        </tr>
+      </thead>
+      <% @tour_details.each do |tour_detail| %>
+        <tr>
+          <td>
+            <%= link_to new_tour_detail_path(tour_detail_id: tour_detail.id, tour_id: tour_detail.tour.id) do %>
+              <%= tour_detail.id %>
+            <% end %>
+          </td>
+          <td> <%= tour_detail.price %> </td>
+          <td> <%= tour_detail.tour_total %> </td>
+          <td> <%= tour_detail.time_start %> </td>
+          <td> <%= tour_detail.time_end %> </td>
+          <td class="text-center">
+            <%= link_to admin_tour_detail_path(id: tour_detail.id, tour_id: tour_detail.tour_id), method: :DELETE, class: "btn btn-danger btn-xs" do %>
+              <span class="glyphicon glyphicon-remove"> <%= t("views.tag.delete") %> </span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

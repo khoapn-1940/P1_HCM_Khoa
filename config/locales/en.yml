@@ -98,6 +98,8 @@ en:
       view_tour_detail : "View Tour Detail"
       create_tour_detail : "Create Tour Detail"
       delete_tour : "Delete Tour"
+      tour_id : "Tour ID"
+      tour_detail_id : "Tour Detail ID"
   validate:
     validate_time : "has already passed"
     validate_time_end : "Time end must after time strat"
