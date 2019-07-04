@@ -1,0 +1,37 @@
+<%= will_paginate @tour %>
+<div class="container">
+  <div class="">
+    <table class="table table-striped custab">
+      <thead>
+        <tr>
+          <th> <%= t("views.tag.tour_id") %> </th>
+          <th> <%= t("views.tag.tour_name") %> </th>
+          <th> <%= t("views.tag.description") %> </th>
+          <th> <%= t("views.tag.category_name") %> </th>
+          <th>  <%= t("views.tag.created_by") %> </th>
+          <th class="text-center"> <%= t("views.tag.action") %> </th>
+        </tr>
+      </thead>
+      <% @tour.each do |tour| %>
+        <tr>
+          <td> <%= tour.id %> </td>
+          <td> <%= tour.name %> </td>
+          <td> <%= tour.description %> </td>
+          <td> <%= tour.category.name %> </td>
+          <td> <%= tour.user.name %> </td>
+          <td class="text-center">
+            <%= link_to admin_tour_details_path(id: tour.id), class: "btn btn-info btn-xs" do %>
+              <span class="glyphicon glyphicon-edit"> <%= t("views.tag.view_tour_detail") %> </span>
+            <% end %>
+            <%= link_to new_admin_tour_detail_path(id: tour.id), class: "btn btn-info btn-xs" do %>
+              <span class="glyphicon glyphicon-edit"> <%= t("views.tag.create_tour_detail") %> </span>
+            <% end%>
+            <%= link_to admin_tour_path(id: tour.id), method: :DELETE, class: "btn btn-danger btn-xs" do %>
+              <span class="glyphicon glyphicon-remove"> <%= t("views.tag.delete_tour") %> </span>
+            <% end%>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

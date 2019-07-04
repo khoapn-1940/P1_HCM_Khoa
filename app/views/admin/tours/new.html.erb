@@ -1,0 +1,10 @@
+<%= form_for(@tour,url: admin_tours_path) do |f| %>
+  <%= render "shared/form_error_messages", object: @tour %>
+  <%= f.label t("views.tag.name") %>
+  <%= f.text_field :name %>
+  <%= f.label t("views.tag.description") %>
+  <%= f.text_field :description %>
+  <%= f.file_field :image %>
+  <%= f.hidden_field :category_id %>
+  <%= f.submit t("views.tag.create_tour"), class: "btn btn-primary" %>
+<% end %>

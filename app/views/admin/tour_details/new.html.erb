@@ -1,0 +1,17 @@
+<%= form_for(@tour_details, url: admin_tour_details_path) do |f| %>
+  <%= render "shared/form_error_messages", object: @tour_details %>
+  <%= f.label t("views.tag.price") %>
+  <%= f.text_field :price %>
+  <%= f.label t("views.tag.tour_total") %>
+  <%= f.text_field :tour_total %>
+  <br>
+  <br>
+  <%= f.label t("views.tag.time_start") %>
+  <span class="datetime"><%= f.datetime_select :time_start , ampm: true , :class => "form-control"%> <span/>
+    <br>
+    <%= f.label t("views.tag.time_end") %>
+    <span class="datetime"><%= f.datetime_select :time_end , ampm: true , :class => "form-control" %> <span/>
+      <br>
+      <%= f.hidden_field :tour_id %>
+      <%= f.submit t("views.tag.create"), class: "btn btn-primary" %>
+    <% end %>
